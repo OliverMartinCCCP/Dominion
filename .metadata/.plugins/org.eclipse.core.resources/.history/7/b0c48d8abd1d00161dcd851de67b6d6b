@@ -1,0 +1,145 @@
+package Model;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+
+public class WriteToMySql {
+	public static void main(String args[]) throws Exception
+	{
+		createTables();
+	}
+	
+	public static Connection getConnection() throws Exception
+	{
+		try{
+			String driver = "com.mysql.jdbc.Driver";
+			String url = "jdbc:mysql://localhost:3306/dominion";
+			String username = "root";
+			String password = "";
+			Class.forName(driver);
+			
+			Connection com = DriverManager.getConnection(url,username,password);
+			System.out.println("Connected");
+			return com;
+		} catch(Exception e){System.out.println(e);};
+		
+		return null;
+	}
+	
+	public static void createTables() throws Exception
+		{try{
+			Connection com = getConnection();
+			PreparedStatement create = com.prepareStatement("CREATE TABLE IF NOT EXISTS players(id int NOT NULL AUTO_INCREMENT, name varchar(255), wins int NULL DEFAULT NULL, loses int NULL DEFAULT NULL, CONSTRAINT fk_lastgame FOREIGN KEY (id) REFERENCES games(id), PRIMARY KEY (id);CREATE TABLE IF NOT EXISTS games(id int NOT NULL AUTO_INCREMENT, player1 varchar(255) NOT NULL, player2 varchar(255) NOT NULL, currentplayer varchar(255) NOT NULL, laststep varchar(255) NOT NULL, PRIMARY KEY (id);");
+			create.executeUpdate();	
+			
+		}catch(Exception e){System.out.println(e);}
+		finally{System.out.println("function complete...");};
+	}
+
+	public static void postPlayerName(String playerName) throws Exception
+		{
+		final String var1 = playerName;
+		
+		try{
+			Connection com = getConnection();
+			PreparedStatement posted = com.prepareStatement("INSERT INTO players (name) VALUES ("+var1+")");
+			posted.executeUpdate();
+		}catch(Exception e){System.out.println(e);}
+		finally{
+			System.out.println("Insert Completed");
+		}
+	}
+	
+	public static void updatePlayerInfo(String playerName, int amountWins, int amountLoses) throws Exception
+		{
+		final String var1 = playerName;
+		final int var2 = amountWins;
+		final int var3 = amountLoses;
+		
+		try{
+			Connection com = getConnection();
+			PreparedStatement posted = com.prepareStatement("UPDATE players SET wins = "+var2+", loses = "+var3+" WHERE name = "+var1+" ");
+			posted.executeUpdate();
+		}catch(Exception e){System.out.println(e);}
+		finally{
+			System.out.println("Insert Completed");
+		}
+	}
+	
+	public static void postGame(String playerName1, String playerName2) throws Exception
+	{
+	final String var1 = playerName1;
+	final String var2 = playerName2;
+	
+	try{
+		Connection com = getConnection();
+		PreparedStatement posted = com.prepareStatement("INSERT INTO games (player1, player2) VALUES ('"+var1+"', '"+var2+"')");
+		posted.executeUpdate();
+	}catch(Exception e){System.out.println(e);}
+	finally{
+		System.out.println("Insert Completed");
+	}
+}
+	
+	public static void updateGameInfo(String playerName1, String playerName2, String currentPlayer, String lastStep) throws Exception
+	{
+	final String var1 = playerName1;
+	final String var2 = playerName2;
+	final String var3 = currentPlayer;
+	final String var4 = lastStep;
+	
+	try{
+		Connection com = getConnection();
+		PreparedStatement posted = com.prepareStatement("UPDATE games SET currentplayer = "+var3+", laststep = "+var4+" WHERE ((player1 = "+var1+") AND (player2 = "+var2+", player2))");
+		posted.executeUpdate();
+		
+		PreparedStatement statement = com.prepareStatement("SELECT id FROM games WHERE ((player1 = "+var1+") AND (player2 = "+var2+", player2))");
+		
+		ResultSet result = statement.executeQuery();
+		PreparedStatement updatePlayer = com.prepareStatement("UPDATE players SET lastgame = "+result+" WHERE ((player1 = "+var1+") OR (player2 = "+var2+", player2))");
+		updatePlayer.executeUpdate();
+		
+	}catch(Exception e){System.out.println(e);}
+	finally{
+		System.out.println("Insert Completed");
+	}
+}
+	
+	public static ArrayList<String> get() throws Exception
+		{
+		try{
+			Connection com = getConnection();
+			PreparedStatement statement = com.prepareStatement("SELECT * FROM player");
+			
+			ResultSet result = statement.executeQuery();
+			
+			ArrayList<String> array = new ArrayList<String>();
+			while(result.next()){
+				System.out.print(result.getString("id"));
+				System.out.print(" ");
+				System.out.print(result.getString("name"));
+				System.out.print(" ");
+				System.out.print(result.getString("wins"));
+				System.out.print(" ");
+				System.out.print(result.getString("loses"));
+				System.out.print(" ");
+				System.out.println(result.getString("laststep"));
+				
+				array.add(result.getString("id"));
+				array.add(result.getString("name"));
+				array.add(result.getString("wins"));
+				array.add(result.getString("loses"));
+				array.add(result.getString("laststep"));
+				
+			}
+			System.out.println("All records have been selected");
+			return array;
+			
+		}catch(Exception e){System.out.println(e);}
+		return null;
+		
+	}
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+    <link rel="stylesheet" href="../css/screen.css" type="text/css"/>
+    <meta charset="UTF-8">
+    <title>play</title>
+</head>
+<body>
+<header>
+    <nav class="cf">
+        <a class="headerLogo" href="../../index.html"></a>
+        <ul>
+            <li><a href="rules.html">rules</a></li>
+        </ul>
+    </nav>
+</header>
+<div class="startGame">
+	<a href="" id=newGame>Start a new game</a>
+	<a href="" id=continueGame>continue a game </a>
+    
+</div>
+<div class="newGame">
+	<form>
+    	<h2>Enter player names!</h2>
+    	<label>Player 1:</label><input required="required" type=text id=name1>
+    	<label>Player 2:</label><input required="required" type=text id=name2 >
+    	<input type=button id=initialize value="start game">
+    	</form>
+    	<article>
+    		<p id=response>nog niets doorgestuurd!<p>
+    	</article>
+</div>
+<div class="play">
+
+    <div id="treasureCards" class="big">
+        <div id="gold" title="gold"><span class="amount"></span><span class="value">6</span><span class="add">+</span></div>
+        <div id="silver" title="silver"><span class="amount"></span><span class="value">3</span><span class="add">+</span></div>
+        <div id="copper" title="copper"><span class="amount"></span><span class="value">0</span><span class="add">+</span></div>
+        <p>treasure cards</p>
+    </div>
+    
+    
+    <div id="actionCards" class="big">
+        <div id="actioncardOne"><span class="amount"></span><span class="value"></span><span class="add">+</span></div>
+        <div id="actioncardTwo"><span class="amount"></span><span class="value"></span><span class="add">+</span></div>
+        <div id="actioncardThree"><span class="amount"></span><span class="value"></span><span class="add">+</span></div>
+        <div id="actioncardFour"><span class="amount"></span><span class="value"></span><span class="add">+</span></div>
+        <div id="actioncardFive"><span class="amount"></span><span class="value"></span><span class="add">+</span></div>
+        <div id="actioncardSix"><span class="amount"></span><span class="value"></span><span class="add">+</span></div>
+        <div id="actioncardSeven"><span class="amount"></span><span class="value"></span><span class="add">+</span></div>
+        <div id="actioncardEight"><span class="amount"></span><span class="value"></span><span class="add">+</span></div>
+        <div id="actioncardNine"><span class="amount"></span><span class="value"></span><span class="add">+</span></div>
+        <div id="actioncardTen"><span class="amount"></span><span class="value"></span><span class="add">+</span></div>
+        <p>action cards</p>
+    </div>
+    
+    <div id="victoryCards" class="big">
+        <div id="province" title="province"><span class="amount"></span><span class="value">8</span><span class="add">+</span></div>
+        <div id="duchy" title="duchy"><span class="amount"></span><span class="value">5</span><span class="add">+</span></div>
+        <div id="estate" title="estate"><span class="amount"></span><span class="value">2</span><span class="add">+</span></div>
+        <div id="curse" title="curse"><span class="amount"></span><span class="value">0</span><span class="add">+</span></div>
+        <p>victory cards</p>
+    </div>
+    
+    <div id="phases">
+    	<p>Player: <strong id="player"></strong><p>
+    	<p>Actions: <strong id="actions">1</strong></p>
+    	<p>Buys: <strong id="buys">1</strong></p>
+    	<p>Coins: <strong id="coins">0</strong></p>
+    </div>
+    
+    <div id="board"></div>
+    <div id="deck" title="back"></div>
+    <div id="discard"></div>
+    <div id="hand" class="big"></div>
+    <div id="trash" title="trash"></div>
+    <div id="zoom"></div>
+    <a href="" id="playAllTreasures">Play all treasure cards</a>
+</div>
+
+<script src="../js/ajaxOffline.js"></script>
+<script type="text/javascript" src="../js/script.js"></script>
+</body>
+</html>

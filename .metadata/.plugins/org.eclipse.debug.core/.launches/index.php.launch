@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.php.debug.core.launching.webPageLaunch">
+<booleanAttribute key="auto_generated_url" value="true"/>
+<stringAttribute key="base_url" value="http://localhost:80800/"/>
+<stringAttribute key="file_name" value="index.php"/>
+<stringAttribute key="name" value="Tomcat v6.0 Server at localhost-config"/>
+<booleanAttribute key="org.eclipse.php.debug.core.RunWithDebugInfo" value="true"/>
+</launchConfiguration>
