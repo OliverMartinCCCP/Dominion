@@ -1,0 +1,440 @@
+/*-----------------
+       tags
+-----------------*/
+
+body {
+    background-image: url("../media/dominionSpelRegelsAchtergrond2.png");
+    width: 100%;
+    font-size: 1rem;
+    margin-right: auto;
+    margin-left: auto;
+
+}
+
+header {
+    border-bottom: 1px solid #39444b;
+    border-top: 1px solid #39444b;
+}
+
+nav {
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+nav ul li {
+    display: inline-block;
+    border-left: 1px solid #39444b;
+    border-right: 1px solid #39444b;
+    font-size: 1.5rem;
+    padding: 10px;
+    float: left;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: darkorange;
+    font-size: 1rem;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+article {
+    margin: 20px;
+    border-bottom: 1px solid #39444b;
+}
+
+p {
+	margin-bottom: 10px;
+    color: #d7dbe1;
+}
+
+h2 {
+	margin-bottom: 20px;
+    font-size: 1.5rem;
+    color: #d7dbe1;
+}
+
+h3{
+    text-align: center;
+    font-size: 1.5rem;
+    text-decoration: underline;
+}
+
+label{
+	color: #ffffff;
+	margin-right: 10px;
+	margin-left: 10px;
+	font-size:1.2rem;
+}
+
+input[type="text"]{
+	margin-bottom:10px;
+	height: 25px;
+	width:400px
+}
+
+form > h2{
+	text-align: center;
+}
+/*-----------------
+      classes
+-----------------*/
+@media screen and (min-width: 1000px) {
+
+    .banner::before, .banner::after {
+        content: '';
+        background-image: url("../media/main_sprite2.png");
+        position: absolute;
+        z-index: 40;
+        background-repeat: no-repeat;
+        background-position: 0 -245px;
+        width: 175px;
+        height: 50px;
+        bottom: -10px;
+    }
+
+    .banner::after {
+        right: 0;
+        transform: scaleX(-1);
+    }
+}
+
+.banner {
+    height: 660px;
+}
+
+.content {
+    color: #000000;
+    font-family: "Arial", Helvetica, sans-serif;
+    background-image: url("../media/dominionSpelRegelsAchtergrond3.png");
+    width: 50%;
+    position: absolute;
+    top: 600px;
+    left: 25%;
+    border: 1px solid #39444b;
+    border-radius: 20px;
+}
+
+.carousel {
+    width: 1200px;
+    height: 660px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+.carousel li {
+    display: none;
+}
+
+.carousel img {
+    height: 660px;
+    width: 1200px;
+}
+
+.headerLogo {
+    background-image: url("../media/Dom_Typo.gif");
+    background-size: 90px;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding-bottom: 44px;
+    padding-left: 110px;
+    float: left;
+}
+
+.rules {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    color: #d7dbe1;
+}
+
+.startGame{
+	display: none;
+    border: 1px solid #39444b;
+    width: 700px;
+    height: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 150px;
+}
+
+.startGame a{
+	width:300px;
+	color: #000;
+	background-color: #fff;
+	font-size: 30px;
+	display: block;
+	text-align: center;
+	margin-bottom: 15px;
+	border: 1px solid;
+	margin-left: auto;
+	margin-right:auto;
+	text-decoration: none;
+}
+
+.startGame a:FIRST-CHILD{
+	margin-top: 200px;
+}
+
+.newGame{
+	display:none;
+	border: 1px solid #39444b;
+    width: 700px;
+    height: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 150px;
+}
+
+.play {
+	display:none;
+    margin-right: auto;
+    margin-left: auto;
+    height: 900px;
+    width: 100%;
+    border: 1px solid #d7dbe1;
+    margin-left: auto;
+    margin-right: auto;
+    background-image: url("../media/iframe1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.cf:before, .cf:after {
+    display: table;
+    content: "";
+}
+
+.cf:after {
+    clear: both;
+}
+
+/*-----------------
+       id's
+-----------------*/
+
+#container {
+    border-bottom: 1px solid #39444b;
+    z-index: 1;
+    position: relative;
+    background-image: url("../media/dominionSpelRegelsAchtergrond1.png");
+}
+
+#victoryCards {
+    position: absolute;
+    top: 7%;
+    left:1%;
+    width: 370px;
+    height:300px;
+}
+
+#actionCards{
+    position: absolute;
+    top: 7%;
+    left: 23%;
+    width: 750px;
+    height: 300px;
+}
+
+#treasureCards{
+    position: absolute;
+    top: 7%;
+    left: 70%;
+    width: 370px;
+    height: 420px;
+}
+
+#treasureCards p,#actionCards p, #victoryCards p{
+	font-size: 30px;
+	text-align: center;
+	color: black;
+}
+
+#victoryCards div, #treasureCards div, #actionCards div{
+    display: inline-block;
+    width: 122.5px;
+    height: 175px;
+    border-style: solid;
+    border-width: thin;
+    background-color: rgba(109,96,96,0.5);
+    margin:0;
+    border-radius: 15px;
+    background-size: 122.5px 175px;
+}
+
+span:first-child{
+    float: left;
+    background-color: darkred;
+    font-size: 25px;
+    font-weight: bold;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    border-radius: 100%;
+}
+
+span:nth-child(2){
+    float: right;
+    width: 25px;
+    height: 25px;;
+    border-radius: 100%;
+    background-color: darkgoldenrod;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+span:nth-child(3){
+	display:none;
+	float:left;
+	margin-top: 100%;
+	margin-left: 83%;
+	width: 25px;
+	height: 25px;
+	background:url("../media/plus.png");
+	background-size:16px;
+	text-align: center;
+	font-size: 25px;
+	font-weight: bold;
+	border: 2px solid black;
+	border-radius: 100%;
+	opacity:0.6;
+	
+}
+
+#deck{
+	background-image: url("../media/back.jpg");
+	background-size: 147px 150px;
+    position: absolute;
+    left:1%;
+    bottom: 19.5%;
+}
+
+#discard{
+    position: absolute;
+    left: 1%;
+    bottom: 1%;
+}
+
+#hand{
+	position: absolute;
+	left:25%;
+	bottom: 3%;
+	width: 40%;
+	height: 200px;
+	padding: 10px;
+	text-align: center;
+	}
+
+#hand div{
+	position:absolute;
+    width: 147px;
+    height: 210px;
+    border-radius: 15px;
+    background-size: 147px 210px;
+}
+
+#trash{
+	
+	background-image: url("../media/trash.jpg");
+	background-size: 147px 150px;
+    position: absolute;
+    right: 1%;
+    bottom: 1%;
+}
+
+#deck, #discard,#trash{
+    width: 147px;
+    height: 150px;
+    border-style: solid;
+    border-width: thin;
+    background-color: rgba(109,96,96,0.5);
+    margin:0;
+    border-radius: 15px;
+}
+
+#phases{
+    position: absolute;
+    right: 1%;
+    bottom: 19.5%;
+}
+
+#phases p{
+	font-size: 40px;
+	color: #000;
+}
+
+#response{
+	color: white;
+}
+
+#playAllTreasures{
+	width:100px;
+	height:100px;
+	border: 3px solid #ffcc00;
+	font-size: 30px;
+	padding-left: 10px;
+	padding-right: 10px;
+	position: absolute;
+	right:5%;
+	bottom: 45%;
+	background-color: #82552a;
+	color: #ffcc00;
+	text-decoration: none;
+}
+
+#endTurn{
+	width:100px;
+	height:100px;
+	border: 3px solid #ffcc00;
+	font-size: 30px;
+	padding-left: 10px;
+	padding-right: 10px;
+	position: absolute;
+	right:5%;
+	bottom: 58%;
+	background-color: #82552a;
+	color: #ffcc00;
+	text-decoration: none;
+}
+
+#zoom{
+	position:absolute;
+	z-index: 11;
+	display:none;
+	border: 1px solid #39444b;
+    width: 290px;
+    height: 470px;
+    background-color: rgba(109,96,96,0.7);
+    border-radius:20px;
+    background-repeat: no-repeat;
+    left: 40%;
+    top: 35%;
+}
+
+#initialize{
+	margin-left:150px;
+	margin-right:150px;
+	width: 400px;
+	height: 50px
+}
+
+#board{
+	width: 70%;
+	position: absolute;
+	height: 200px;
+	left: 15%;
+	text-align: center;
+	bottom: 28%
+}
+
+#board div{
+	display: inline-block;
+	width: 147px;
+	height: 210px;
+	border-radius:15px;
+	background-size: 147px 210px;
+	background-repeat: no-repeat;
+}
